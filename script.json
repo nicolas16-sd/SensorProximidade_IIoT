@@ -1,0 +1,47 @@
+{
+    "version": 1,
+    "author": "Nicolas dos Santos",
+    "editor": "wokwi",
+    "parts": [
+      {
+        "type": "wokwi-esp32-devkit-v1",
+        "id": "esp",
+        "top": 0,
+        "left": 0,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-hc-sr04",
+        "id": "ultra",
+        "top": -120,
+        "left": 200,
+        "attrs": {}
+      },
+      {
+        "type": "wokwi-led",
+        "id": "led1",
+        "top": 120,
+        "left": 220,
+        "attrs": { "color": "red" }
+      },
+      {
+        "type": "wokwi-resistor",
+        "id": "res1",
+        "top": 180,
+        "left": 220,
+        "rotate": 90,
+        "attrs": { "value": "470" }
+      }
+    ],
+    "connections": [
+      [ "esp:VIN", "ultra:VCC", "red", [ "v0" ] ],
+      [ "esp:GND.1", "ultra:GND", "black", [ "v0" ] ],
+  
+      [ "esp:25", "ultra:TRIG", "green", [ "v0" ] ],
+      [ "esp:27", "ultra:ECHO", "blue", [ "v0" ] ],
+  
+      [ "esp:26", "led1:A", "green", [ "v0" ] ],
+      [ "led1:C", "res1:1", "black", [ "v0" ] ],
+      [ "res1:2", "esp:GND.2", "black", [ "v0" ] ]
+    ]
+  }
